@@ -7,38 +7,17 @@
   const clear = document.getElementById("clear");
 
   function parseCoordinate(value) {
-    const cleaned = value.trim().replace(/[()]/g, "");
+    const match = input.match(/x\s*([\d.-]+)\s*,\s*y\s*([\d.-]+)/i);
 
-    // Primary format: x54.63, y75.82
-    const labeled = cleaned.match(
-      /^\\s*x\\s*([-+]?\\d+(?:[.,]\\d+)?)\\s*,\\s*y\\s*([-+]?\\d+(?:[.,]\\d+)?)\\s*$/i
-    );
-
-    if (labeled) {
-      const x = Number(labeled[1].replace(",", ".", " "));
-      const y = Number(labeled[2].replace(",", ".", " "));
-
-      if (Number.isFinite(x) && Number.isFinite(y)) {
-        return { x, y };
-      }
+    if (!match) {
+        throw new Error("Invalid coordinate format");
     }
 
-    // Also accept: 54.63, 75.82
-    const plain = cleaned.match(
-      /^\\s*([-+]?\\d+(?:[.,]\\d+)?)\\s*,\\s*([-+]?\\d+(?:[.,]\\d+)?)\\s*$/
-    );
+    const x = parseFloat(match[1]);
+    const y = parseFloat(match[2]);
 
-    if (plain) {
-      const x = Number(plain[1].replace(",", "."));
-      const y = Number(plain[2].replace(",", "."));
-
-      if (Number.isFinite(x) && Number.isFinite(y)) {
-        return { x, y };
-      }
-    }
-
-    throw new Error("Invalid format. Use: x54.63, y75.82");
-  }
+    return { x, y };
+}
 
   function calculate() {
     try {
