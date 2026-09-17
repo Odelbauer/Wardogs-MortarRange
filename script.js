@@ -7,7 +7,7 @@
   const clear = document.getElementById("clear");
 
   function parseCoordinate(value) {
-    const match = input.match(/x\s*([\d.-]+)\s*,\s*y\s*([\d.-]+)/i);
+    const match = value.match(/x\s*([\d.-]+)\s*,\s*y\s*([\d.-]+)/i);
 
     if (!match) {
         throw new Error("Invalid coordinate format");
