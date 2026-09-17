@@ -15,8 +15,8 @@
     );
 
     if (labeled) {
-      const x = Number(labeled[1].replace(",", "."));
-      const y = Number(labeled[2].replace(",", "."));
+      const x = Number(labeled[1].replace(",", ".", " "));
+      const y = Number(labeled[2].replace(",", ".", " "));
 
       if (Number.isFinite(x) && Number.isFinite(y)) {
         return { x, y };
