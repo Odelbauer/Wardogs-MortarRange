@@ -1,4 +1,4 @@
-style_css = """* {
+{
   box-sizing: border-box;
 }
 
@@ -187,4 +187,3 @@ input:focus {
     grid-template-columns: 1fr;
   }
 }
-"""
