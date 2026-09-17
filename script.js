@@ -1,4 +1,4 @@
-script_js = """(() => {
+
   const a = document.getElementById("coord-a");
   const b = document.getElementById("coord-b");
   const distance = document.getElementById("distance");
@@ -91,5 +91,3 @@ script_js = """(() => {
   });
 
   calculate();
-})();
-"""
